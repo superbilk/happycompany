@@ -1,0 +1,24 @@
+defaults: &defaults
+  twitter_key: foo
+  twitter_secret: bar
+
+  # TWITTER_OAUTH_TOKEN: foo
+  # TWITTER_OAUTH_TOKEN_SECRET: bar
+
+  admin_email: email@example.com
+
+  secret_token: foo
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  google_analytics: UA-XXXXXX-1
+  sendgrid_username: foo
+  sendgrid_password: bar
+
+

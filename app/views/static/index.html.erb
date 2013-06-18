@@ -1,0 +1,5 @@
+<% if current_user %>
+  Hallo <%= current_user.name %>!
+<% else %>
+  <%= link_to image_tag("login_grey_18_DE.png"), "/auth/xing" %>
+<% end %>

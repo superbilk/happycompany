@@ -1,20 +1,56 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Happycompany</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<% if current_user %>
-  Signed in as <%= current_user.name %> (<%= current_user.email %> from <%= current_user.company %>)!
-  <%= link_to "Sign out", signout_path %>
-<% else %>
-  <%= link_to image_tag("login_grey_18_retina_DE.png"), "/auth/xing" %>
-<% end %>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+  <head>
+  	<meta charset="utf-8" />
 
-<%= yield %>
+  	<!-- Uncomment to make IE8 render like IE7 -->
+  	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
 
-</body>
+  	<!-- Set the viewport width to device width for mobile -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  	<title><%= content_for?(:title) ? yield(:title) : "Happy Company" %></title>
+
+  	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  	<%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <nav class="top-bar">
+      <ul class="title-area">
+        <!-- Title Area -->
+        <li class="name">
+          <h1><a href="#"><%= content_for?(:title) ? yield(:title) : "Happy Company" %> </a></h1>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li class="divider hide-for-small"></li>
+          <li class="has-form">
+            <% if current_user %>
+              <%= link_to "Sign out", signout_path %>
+            <% else %>
+              <%= link_to image_tag("login_grey_18_DE.png"), "/auth/xing" %>
+            <% end %>
+          </li>
+        </ul>
+      </section>
+    </nav>
+
+    <div class="row">
+      <div class="small-12 columns"><%= yield %></div>
+    </div>
+
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  </body>
 </html>

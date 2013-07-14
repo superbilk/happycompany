@@ -1,8 +1,15 @@
+# http://viget.com/extend/using-routing-constraints-to-root-your-app
+class AuthConstraint
+  def matches?(request)
+    request.session['user_id'].present?
+  end
+end
+
 Happycompany::Application.routes.draw do
 
-  get 'auth/xing/callback' => 'sessions#create'
-  get 'auth/failure'            => redirect('/')
-  get 'signout'                 => 'sessions#destroy', as: 'signout'
+  get 'auth/xing/callback'    => 'sessions#create'
+  get 'auth/failure'          => redirect('/')
+  get 'signout'               => 'sessions#destroy', as: 'signout'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -10,7 +17,10 @@ Happycompany::Application.routes.draw do
   get ':action' => 'static#:action'
 
   # You can have the root of your site routed with "root"
-  root 'static#index'
+  root "static#dashboard", as: :auth_root, constraints: AuthConstraint.new
+
+  root 'static#welcome'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

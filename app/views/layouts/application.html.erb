@@ -58,22 +58,12 @@
 
     <%= render "layouts/flashmessages" %>
 
-    <% if current_user %>
-      <div class="row">
-        <div class="large-8 columns">
-          <h2>Happiness bei <%= current_user.company %></h2>
-          <%= yield %>
-        </div>
-        <%= render "layouts/overview" %>
+    <div class="row">
+      <div class="large-8 columns">
+        <%= yield %>
       </div>
-    <% else %>
-      <div class="row">
-        <div class="large-12 columns">
-          <h2>Happiness</h2>
-            <%= yield %>
-        </div>
-      </div>
-    <% end %>
+      <!-- #render "layouts/overview" %> -->
+    </div>
 
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   </body>

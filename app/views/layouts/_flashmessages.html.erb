@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="large-12 columns">
+    <% if flash[:error] %>
+      <%= content_tag :div, :id => "flash_name", :class => "alert-box alert", :data => "alert" do %>
+        <%= flash[:error] %>
+        <a href="" class="close">&times;</a>
+      <% end %>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <%= content_tag :div, :id => "flash_name", :class => "alert-box" do %>
+        <%= flash[:notice] %>
+        <a href="" class="close">&times;</a>
+      <% end %>
+    <% end %>
+
+    <% if flash[:success] %>
+      <%= content_tag :div, :id => "flash_name", :class => "alert-box success" do %>
+        <%= flash[:success] %>
+        <a href="" class="close">&times;</a>
+      <% end %>
+    <% end %>
+  </div>
+</div>

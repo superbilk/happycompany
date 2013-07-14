@@ -37,52 +37,34 @@
           <!-- Right Nav Section -->
           <ul class="right">
             <li class="divider"></li>
-            <li>
               <% if current_user %>
-                <%= link_to "Abmelden", signout_path %>
+              <li class="has-dropdown">
+                <%= link_to image_tag(current_user.image_mini_thumb, size: "18x24", alt: "Profilbild") + " #{current_user.name}",  nil %>
+                <ul class="dropdown">
+                  <li><%= link_to "Abmelden", signout_url %></a></li>
+                </ul>
+              </li>
               <% else %>
+              <li>
                 <%= link_to image_tag("login_grey_18_DE.png"), "/auth/xing" %>
+              </li>
               <% end %>
-            </li>
+
+
           </ul>
         </section>
       </nav>
     </div>
 
-    <div class="row">
-      <div class="large-12 columns">
-        <% if flash[:error] %>
-          <%= content_tag :div, :id => "flash_name", :class => "alert-box alert", :data => "alert" do %>
-            <%= flash[:error] %>
-            <a href="" class="close">&times;</a>
-          <% end %>
-        <% end %>
-
-        <% if flash[:notice] %>
-          <%= content_tag :div, :id => "flash_name", :class => "alert-box" do %>
-            <%= flash[:notice] %>
-            <a href="" class="close">&times;</a>
-          <% end %>
-        <% end %>
-
-        <% if flash[:success] %>
-          <%= content_tag :div, :id => "flash_name", :class => "alert-box success" do %>
-            <%= flash[:success] %>
-            <a href="" class="close">&times;</a>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
+    <%= render "layouts/flashmessages" %>
 
     <% if current_user %>
       <div class="row">
         <div class="large-8 columns">
           <h2>Happiness bei <%= current_user.company %></h2>
-            <%= yield %>
-          </div>
-        <div class="large-4 columns">
-          <h2>Statistics</h2>
+          <%= yield %>
         </div>
+        <%= render "layouts/overview" %>
       </div>
     <% else %>
       <div class="row">

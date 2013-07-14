@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
     User.where("company == ?", self.company).count()-1
   end
 
+  def colleagues
+    User.where("company == ?", self.company).where("id != ?", self.id)
+  end
+
   def assign_from_omniauth(auth)
     self.provider ||= auth["provider"]
     self.uid ||= auth["uid"]

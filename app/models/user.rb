@@ -14,23 +14,32 @@
 #
 
 class User < ActiveRecord::Base
-  def self.from_omniauth(auth)
-    where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
-  end
+  before_save :add_company
 
-  def self.create_from_omniauth(auth)
-    create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      user.name = auth["info"]["name"]
-      user.email = auth["info"]["email"]
-      user.company = auth["info"]["email"][/@(.*)$/,1]
-      user.image_mini_thumb = auth["extra"]["raw_info"]["photo_urls"]["mini_thumb"]
-    end
+  def self.from_omniauth(auth)
+    user = where(auth.slice("provider", "uid")).first || User.new
+    user.assign_from_omniauth(auth)
+    user.save if user.changed?
+    user
   end
 
   def colleagues_count
     User.where("company == ?", self.company).count()
+  end
+
+  def assign_from_omniauth(auth)
+    self.provider ||= auth["provider"]
+    self.uid ||= auth["uid"]
+    self.name = auth["info"]["name"]
+    self.email = auth["info"]["email"]
+    self.image_mini_thumb = auth["extra"]["raw_info"]["photo_urls"]["mini_thumb"]
+    self
+  end
+
+private
+
+  def add_company
+    self.company = self.email.match(/@(.*)$/)[1]
   end
 
 end

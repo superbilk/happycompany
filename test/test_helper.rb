@@ -14,7 +14,7 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
   OmniAuth.config.test_mode = true
 
-  OmniAuth.config.mock_auth[:xing] = OmniAuth::AuthHash.new({
+  OmniAuth.config.mock_auth[:default] = OmniAuth::AuthHash.new({
     'provider' => 'xing',
     'uid' => '123545',
     'info' => {

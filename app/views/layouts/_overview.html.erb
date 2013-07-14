@@ -10,10 +10,6 @@
       </tr>
       <tr>
         <td>Kollegen</td>
-        <td class="right"><%= current_user.colleagues_count %></td>
-      </tr>
-      <tr>
-        <td>Kollegen</td>
         <td class="right">
           <%= render partial: "layouts/colleague", collection: current_user.colleagues, as: :colleague %>
         </td>

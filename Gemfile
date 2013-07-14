@@ -38,8 +38,17 @@ end
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-gem 'capistrano', group: :development
+group :development do
+  # Deploy with Capistrano
+  gem 'capistrano'
+  gem 'capistrano_colors'
+  gem 'rvm-capistrano'
+  gem 'capistrano-file_db'
+  gem 'quiet_assets'
+  gem "better_errors"
+  gem "binding_of_caller"
+  # gem 'meta_request', '0.2.1'
+end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

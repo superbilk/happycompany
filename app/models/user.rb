@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   end
 
   def colleagues_count
-    User.where("company == ?", self.company).count()
+    User.where("company == ?", self.company).count()-1
   end
 
   def assign_from_omniauth(auth)

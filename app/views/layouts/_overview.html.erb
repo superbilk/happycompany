@@ -6,7 +6,9 @@
     <tbody>
       <tr>
         <td>Firma</td>
-        <td class="right"><%= current_user.company %></td>
+        <td class="right">
+          <%= link_to current_user.company, "http://#{current_user.company}", target: "_blank" %>
+        </td>
       </tr>
       <tr>
         <td>Kollegen</td>

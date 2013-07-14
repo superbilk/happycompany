@@ -12,4 +12,22 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  OmniAuth.config.test_mode = true
+
+  OmniAuth.config.mock_auth[:xing] = OmniAuth::AuthHash.new({
+    'provider' => 'xing',
+    'uid' => '123545',
+    'info' => {
+      'name' => "Peter Pansen",
+      'email' => "pansen@pansen.de"
+    },
+    'extra' => {
+      'raw_info' => {
+        'photo_urls' => {
+          'mini_thumb' => "image.png"
+        }
+      }
+    }
+  })
+
 end

@@ -55,7 +55,8 @@ end
 
 gem 'omniauth-xing'
 
-gem 'zurb-foundation'
+gem 'compass-rails' # you need this or you get an err
+gem "zurb-foundation", "~> 4.2.3"
 
 gem 'annotate', ">=2.5.0"
 

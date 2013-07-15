@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
     self.uid ||= auth["uid"]
     self.name = auth["info"]["name"]
     self.email = auth["info"]["email"]
-    self.image_mini_thumb = auth["extra"]["raw_info"]["photo_urls"]["mini_thumb"]
+    self.image = auth["info"]["image"]
     self
   end
 

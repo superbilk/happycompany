@@ -11,6 +11,30 @@
         </td>
       </tr>
       <tr>
+        <td><%= Time.zone.now.strftime("%B") %></td>
+        <td class="right">
+          2.3
+        </td>
+      </tr>
+      <tr>
+        <td><%= Time.zone.now.last_month.strftime("%B") %></td>
+        <td class="right">
+          3.3
+        </td>
+      </tr>
+      <tr>
+        <td><%= Time.zone.now.last_month.last_month.strftime("%B") %></td>
+        <td class="right">
+          4.3
+        </td>
+      </tr>
+      <tr>
+        <td><%= Time.zone.now.strftime("%Y") %></td>
+        <td class="right">
+          3.3
+        </td>
+      </tr>
+      <tr>
         <td>Kollegen</td>
         <td class="right">
           <%= render partial: "layouts/colleague", collection: current_user.colleagues, as: :colleague %>
@@ -34,7 +58,7 @@
       </tr>
       <tr>
         <td>Foto</td>
-        <td class="right"><%= image_tag(xing_profile_image_url(current_user.image_mini_thumb, :thumb)) %></td>
+        <td class="right"><%= image_tag(xing_profile_image_url(current_user.image, :thumb)) %></td>
       </tr>
       <tr>
         <td>E-Mail</td>

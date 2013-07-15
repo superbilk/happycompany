@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130714120402) do
+ActiveRecord::Schema.define(version: 20130715193450) do
 
   create_table "users", force: true do |t|
     t.string   "provider"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20130714120402) do
     t.datetime "updated_at"
     t.string   "email"
     t.string   "company"
-    t.string   "image_mini_thumb"
+    t.string   "image"
   end
 
 end

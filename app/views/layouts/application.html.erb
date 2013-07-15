@@ -39,7 +39,7 @@
             <li class="divider"></li>
               <% if current_user %>
               <li class="has-dropdown">
-                <%= link_to image_tag(current_user.image_mini_thumb, alt: "Profilbild") + " #{current_user.name}",  nil %>
+                <%= link_to image_tag(current_user.image, alt: "Profilbild") + " #{current_user.name}",  nil %>
                 <ul class="dropdown">
                   <li><%= link_to "Abmelden", signout_url %></a></li>
                 </ul>

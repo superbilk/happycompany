@@ -34,7 +34,7 @@
       </tr>
       <tr>
         <td>Foto</td>
-        <td class="right"><%= image_tag current_user.image_mini_thumb %></td>
+        <td class="right"><%= image_tag(xing_profile_image_url(current_user.image_mini_thumb, :thumb)) %></td>
       </tr>
       <tr>
         <td>E-Mail</td>
@@ -42,7 +42,7 @@
       </tr>
       <tr>
         <td>Angemeldet</td>
-        <td class="right"><%= current_user.created_at.strftime("%d %b. %Y") %></td>
+        <td class="right"><%= current_user.created_at.strftime("%d. %B %Y") %></td>
       </tr>
     </tbody>
   </table>

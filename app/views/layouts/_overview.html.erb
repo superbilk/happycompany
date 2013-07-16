@@ -1,74 +1,82 @@
-<div class="large-4 columns">
-  <h3 class="subheader">Übersicht</h3>
-  <table>
-    <thead>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Firma</td>
-        <td class="right">
-          <%= link_to current_user.company, "http://#{current_user.company}", target: "_blank" %>
-        </td>
-      </tr>
-      <tr>
-        <td><%= Time.zone.now.strftime("%B") %></td>
-        <td class="right">
-          2.3
-        </td>
-      </tr>
-      <tr>
-        <td><%= Time.zone.now.last_month.strftime("%B") %></td>
-        <td class="right">
-          3.3
-        </td>
-      </tr>
-      <tr>
-        <td><%= Time.zone.now.last_month.last_month.strftime("%B") %></td>
-        <td class="right">
-          4.3
-        </td>
-      </tr>
-      <tr>
-        <td><%= Time.zone.now.strftime("%Y") %></td>
-        <td class="right">
-          3.3
-        </td>
-      </tr>
-      <tr>
-        <td>Kollegen</td>
-        <td class="right">
-          <%= render partial: "layouts/colleague", collection: current_user.colleagues, as: :colleague %>
-        </td>
-      </tr>
-      <tr>
-        <td>Benutzer</td>
-        <td class="right"><%= User.count %></td>
-      </tr>
-    </tbody>
-  </table>
+<h3 class="subheader">Übersicht</h3>
+<table>
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Firma</td>
+      <td class="right">
+        <%= link_to current_user.company, "http://#{current_user.company}", target: "_blank" %>
+      </td>
+    </tr>
+    <tr>
+      <td><%= Time.zone.now.strftime("%B") %></td>
+      <td class="right">
+        2.3
+      </td>
+    </tr>
+    <tr>
+      <td><%= Time.zone.now.last_month.strftime("%B") %></td>
+      <td class="right">
+        3.3
+      </td>
+    </tr>
+    <tr>
+      <td><%= Time.zone.now.last_month.last_month.strftime("%B") %></td>
+      <td class="right">
+        4.3
+      </td>
+    </tr>
+    <tr>
+      <td><%= Time.zone.now.strftime("%Y") %></td>
+      <td class="right">
+        3.3
+      </td>
+    </tr>
+    <tr>
+      <td>Kollegen</td>
+      <td class="right">
+        <%= render partial: "layouts/colleague", collection: current_user.colleagues, as: :colleague %>
+      </td>
+    </tr>
+    <tr>
+      <td>Benutzer</td>
+      <td class="right"><%= User.count %></td>
+    </tr>
+  </tbody>
+</table>
 
-  <h3 class="subheader">Benutzerkonto</h3>
-  <table>
-    <thead>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Name</td>
-        <td class="right"><%= current_user.name %></td>
-      </tr>
-      <tr>
-        <td>Foto</td>
-        <td class="right"><%= image_tag(xing_profile_image_url(current_user.image, :thumb)) %></td>
-      </tr>
-      <tr>
-        <td>E-Mail</td>
-        <td class="right"><%= current_user.email %></td>
-      </tr>
-      <tr>
-        <td>Angemeldet</td>
-        <td class="right"><%= current_user.created_at.strftime("%d. %B %Y") %></td>
-      </tr>
-    </tbody>
-  </table>
-
-</div>
+<h3 class="subheader">Benutzerkonto</h3>
+<table>
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td class="right"><%= current_user.name %></td>
+    </tr>
+    <tr>
+      <td>Foto</td>
+      <td class="right"><%= image_tag(xing_profile_image_url(current_user.image, :thumb)) %></td>
+    </tr>
+    <tr>
+      <td>E-Mail</td>
+      <td class="right"><%= current_user.email %></td>
+    </tr>
+    <tr>
+      <td>Firmenname auf Startseite</td>
+      <td>
+        <form class="custom">
+          <label for="chwo_company_checkbox">
+            <input type="checkbox" id="show_company" style="display: none;" <%= "checked" if current_user.show_company %>>
+            <span class="custom checkbox"></span> anzeigen
+          </label>
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td>Angemeldet</td>
+      <td class="right"><%= current_user.created_at.strftime("%d. %B %Y") %></td>
+    </tr>
+  </tbody>
+</table>

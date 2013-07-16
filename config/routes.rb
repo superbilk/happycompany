@@ -7,11 +7,12 @@ end
 
 Happycompany::Application.routes.draw do
 
+  get "user/show_company"
   get 'auth/xing/callback'    => 'sessions#create'
   get 'auth/failure'          => redirect('/')
   get 'signout'               => 'sessions#destroy', as: 'signout'
 
-  post 'show_company'         => 'static#show_company'
+  post 'user/show_company'    => 'user#show_company'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -61,7 +61,7 @@
     </tr>
     <tr>
       <td>E-Mail</td>
-      <td class="right"><%= current_user.email %> <small><a href="https://www.xing.com/app/settings?op=notifications">(ändern)</a></small></td>
+      <td class="right"><%= current_user.email %> <small><a href="https://www.xing.com/app/settings?op=notifications" target="_blank">(auf XING ändern)</a></small></td>
     </tr>
     <tr>
       <td>Firmenname auf Startseite</td>
@@ -80,3 +80,6 @@
     </tr>
   </tbody>
 </table>
+
+<%= button_to 'Account löschen', user_path, :method => :delete, class: "button small alert", confirm: "Sind Sie sicher?" %>
+<%= button_to "Abmelden", signout_url, class: "button small right" %>

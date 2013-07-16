@@ -33,24 +33,6 @@
         </ul>
 
         <section class="top-bar-section">
-
-          <!-- Right Nav Section -->
-          <ul class="right">
-            <li class="divider"></li>
-              <% if current_user %>
-              <li class="has-dropdown">
-
-                <%= link_to image_tag(xing_profile_image_url(current_user.image, :mini_thumb), alt: "Profilbild") + " #{current_user.name}",  nil %>
-                <ul class="dropdown">
-                  <li><%= link_to "Abmelden", signout_url %></a></li>
-                </ul>
-              </li>
-              <% else %>
-              <li>
-                <%= link_to image_tag("login_grey_18_DE.png"), "/auth/xing" %>
-              </li>
-              <% end %>
-          </ul>
         </section>
       </nav>
     <!-- </div> -->

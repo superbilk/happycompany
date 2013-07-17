@@ -1211,3 +1211,20 @@ $topbar-title-font-size: emCalc(32px);
 .top-bar .name h1 a {
   font-family: 'Sonsie One', cursive;
 }
+
+a[href^="http://"]:after,
+a[href^="https://"]:after {
+  content: "\f08e";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: none;
+  padding-left: 3px;
+}
+/* Strip from links to own domain or with class no_icon */
+a[href^="http://company.happinessmetric.com"]:after,
+a.no_icon:after {
+  content:"" !important;
+  padding-left: 0;
+}

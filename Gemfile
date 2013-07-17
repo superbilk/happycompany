@@ -71,3 +71,5 @@ end
 group :test do
   gem 'faker'
 end
+
+gem "font-awesome-rails"

@@ -6,7 +6,9 @@
     <tr>
       <td>Firma</td>
       <td class="right">
-        <%= link_to current_user.company, "http://#{current_user.company}", target: "_blank" %>
+        <%= link_to "http://#{current_user.company}", target: "_blank" do %>
+          http://<%= current_user.company %> <i class="icon-external-link"></i>
+        <% end %>
       </td>
     </tr>
     <tr>
@@ -81,5 +83,5 @@
   </tbody>
 </table>
 
-<%= button_to 'Account löschen', user_path, :method => :delete, class: "button small alert", confirm: "Sind Sie sicher?" %>
-<%= button_to "Abmelden", signout_url, class: "button small right" %>
+<%= button_to 'Account löschen', user_path, method: :delete, class: "button small alert", confirm: "Sind Sie sicher?" %>
+<%= button_to "Abmelden", signout_path, class: "button small secondary right", method: :get %>

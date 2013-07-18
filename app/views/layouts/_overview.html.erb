@@ -10,25 +10,25 @@
       </td>
     </tr>
     <tr>
-      <td><%= Time.zone.now.strftime("%B") %></td>
+      <td><%= l Time.zone.now, format: '%B' %></td>
       <td class="right">
         2.3
       </td>
     </tr>
     <tr>
-      <td><%= Time.zone.now.last_month.strftime("%B") %></td>
+      <td><%= l Time.zone.now.last_month, format: '%B' %></td>
       <td class="right">
         3.3
       </td>
     </tr>
     <tr>
-      <td><%= Time.zone.now.last_month.last_month.strftime("%B") %></td>
+      <td><%= l Time.zone.now.last_month.last_month, format: '%B' %></td>
       <td class="right">
         4.3
       </td>
     </tr>
     <tr>
-      <td><%= Time.zone.now.strftime("%Y") %></td>
+      <td><%= l Time.zone.now, format: '%Y' %></td>
       <td class="right">
         3.3
       </td>

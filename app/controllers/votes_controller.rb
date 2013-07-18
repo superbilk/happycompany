@@ -26,6 +26,8 @@ class VotesController < ApplicationController
   # POST /votes.json
   def create
     @vote = Vote.new(vote_params)
+    @vote.user = current_user
+    @vote.company = current_user.company
 
     respond_to do |format|
       if @vote.save

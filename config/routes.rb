@@ -12,6 +12,7 @@ Happycompany::Application.routes.draw do
   get 'signout'               => 'sessions#destroy', as: 'signout'
 
   resource :user, only: [:destroy] do
+    resources :votes
     member do
       patch 'show_company'
     end

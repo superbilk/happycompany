@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @vote.grade %>
+</p>
+
+<p>
+  <strong>Best:</strong>
+  <%= @vote.best %>
+</p>
+
+<p>
+  <strong>Worst:</strong>
+  <%= @vote.worst %>
+</p>
+
+<p>
+  <strong>Recommendation:</strong>
+  <%= @vote.recommendation %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @vote.comment %>
+</p>
+
+<%= link_to 'Edit', edit_user_vote_path(@vote) %> |
+<%= link_to 'Back', user_votes_path %>

@@ -1,0 +1,37 @@
+<%= form_for @vote, url: user_vote_path(@vote) do |f| %>
+  <% if @vote.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(@vote.errors.count, "Fehler") %> verhindert, dass das Formular gespeichert werden kann:</h4>
+
+      <ul>
+      <% @vote.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :grade %><br>
+    <%= f.number_field :grade %>
+  </div>
+  <div class="field">
+    <%= f.label :best %><br>
+    <%= f.text_area :best %>
+  </div>
+  <div class="field">
+    <%= f.label :worst %><br>
+    <%= f.text_area :worst %>
+  </div>
+  <div class="field">
+    <%= f.label :recommendation %><br>
+    <%= f.text_area :recommendation %>
+  </div>
+  <div class="field">
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

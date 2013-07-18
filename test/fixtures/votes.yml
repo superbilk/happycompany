@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: votes
+#
+#  id             :integer          not null, primary key
+#  grade          :integer
+#  best           :text
+#  worst          :text
+#  recommendation :text
+#  comment        :text
+#  company        :string(255)
+#  user_id        :integer
+#  created_at     :datetime
+#  updated_at     :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  grade: 1
+  best: MyText
+  worst: MyText
+  recommendation: MyText
+  comment: MyText
+  company: MyString
+  user_id: 
+
+two:
+  grade: 1
+  best: MyText
+  worst: MyText
+  recommendation: MyText
+  comment: MyText
+  company: MyString
+  user_id: 

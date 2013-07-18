@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130715202934) do
+ActiveRecord::Schema.define(version: 20130718195119) do
+
+  create_table "happinesses", force: true do |t|
+    t.integer  "grade"
+    t.text     "best"
+    t.text     "worst"
+    t.text     "recommendation"
+    t.text     "comment"
+    t.string   "company"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "happinesses", ["user_id"], name: "index_happinesses_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "provider"
@@ -24,5 +38,19 @@ ActiveRecord::Schema.define(version: 20130715202934) do
     t.string   "image"
     t.boolean  "show_company", default: false
   end
+
+  create_table "votes", force: true do |t|
+    t.integer  "grade"
+    t.text     "best"
+    t.text     "worst"
+    t.text     "recommendation"
+    t.text     "comment"
+    t.string   "company"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id"
 
 end

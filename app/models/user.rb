@@ -15,6 +15,7 @@
 #
 
 class User < ActiveRecord::Base
+  has_many :votes
   before_save :add_company
 
   def self.from_omniauth(auth)

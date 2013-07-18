@@ -76,7 +76,7 @@
     </tr>
     <tr>
       <td>Angemeldet</td>
-      <td class="right"><%= current_user.created_at.strftime("%d. %B %Y") %></td>
+      <td class="right"><%= l current_user.created_at, format: :date %></td>
     </tr>
   </tbody>
 </table>

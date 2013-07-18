@@ -1212,6 +1212,7 @@ $topbar-title-font-size: emCalc(32px);
   font-family: 'Sonsie One', cursive;
 }
 
+// https://gist.github.com/01-Scripts/3010527
 a[href^="http://"]:after,
 a[href^="https://"]:after {
   content: "\f08e";
@@ -1224,6 +1225,7 @@ a[href^="https://"]:after {
 }
 /* Strip from links to own domain or with class no_icon */
 a[href^="http://company.happinessmetric.com"]:after,
+a[href^="http://happycompany.dev"]:after,
 a.no_icon:after {
   content:"" !important;
   padding-left: 0;

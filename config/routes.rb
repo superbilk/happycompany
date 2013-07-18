@@ -13,7 +13,7 @@ Happycompany::Application.routes.draw do
 
   resource :user, only: [:destroy] do
     member do
-      post 'show_company'
+      patch 'show_company'
     end
   end
 

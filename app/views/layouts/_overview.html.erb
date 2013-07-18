@@ -81,5 +81,5 @@
   </tbody>
 </table>
 
-<%= button_to 'Account löschen', user_path, method: :delete, class: "button small alert", confirm: "Sind Sie sicher?" %>
+<%= button_to 'Account löschen', user_path, method: :delete, class: "button small alert", data: { confirm: 'Sind Sie sicher?' } %>
 <%= button_to "Abmelden", signout_path, class: "button small secondary right", method: :get %>

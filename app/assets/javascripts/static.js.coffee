@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $("#show_company").change ->
-  $.post('/user/show_company',
-    show_company: $(this).is(':checked')
+  $.ajax('/user/show_company',
+    type: "PATCH",
+    data: show_company: $(this).is(':checked')
   )

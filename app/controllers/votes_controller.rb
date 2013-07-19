@@ -5,7 +5,7 @@ class VotesController < ApplicationController
   # GET /votes
   # GET /votes.json
   def index
-    @votes = current_user.votes.all
+    @votes = current_user.votes.limit(10)
     @vote = Vote.new
     @company_votes = Vote.where(company: current_user.company)
   end

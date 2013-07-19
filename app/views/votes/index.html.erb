@@ -41,23 +41,19 @@
       <th>Worst</th>
       <th>Recommendation</th>
       <th>Comment</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>User</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @votes.each do |vote| %>
+    <% @company_votes.each do |vote| %>
       <tr>
         <td><%= vote.grade %></td>
         <td><%= vote.best %></td>
         <td><%= vote.worst %></td>
         <td><%= vote.recommendation %></td>
         <td><%= vote.comment %></td>
-        <td><%= link_to 'Show', user_vote_path(vote) %></td>
-        <td><%= link_to 'Edit', edit_user_vote_path(vote) %></td>
-        <td><%= link_to 'Destroy', user_vote_path(vote), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= vote.user.name %></td>
       </tr>
     <% end %>
   </tbody>

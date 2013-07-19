@@ -5,7 +5,9 @@ class VotesController < ApplicationController
   # GET /votes
   # GET /votes.json
   def index
-    @votes = Vote.all
+    @votes = current_user.votes.all
+    @vote = Vote.new
+    @company_votes = Vote.where(company: current_user.company)
   end
 
   # GET /votes/1

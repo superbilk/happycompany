@@ -1,5 +1,7 @@
-<h1>Listing votes</h1>
+<h2>Neuer Eintrag</h2>
+<%= render 'form' %>
 
+<h2>Ihre Einträge bei <%= current_user.company %></h2>
 <table>
   <thead>
     <tr>
@@ -30,6 +32,33 @@
   </tbody>
 </table>
 
-<br>
+<h2>Alle Einträge bei <%= current_user.company %></h2>
+<table>
+  <thead>
+    <tr>
+      <th>Grade</th>
+      <th>Best</th>
+      <th>Worst</th>
+      <th>Recommendation</th>
+      <th>Comment</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 
-<%= link_to 'New Vote', new_user_vote_path %>
+  <tbody>
+    <% @votes.each do |vote| %>
+      <tr>
+        <td><%= vote.grade %></td>
+        <td><%= vote.best %></td>
+        <td><%= vote.worst %></td>
+        <td><%= vote.recommendation %></td>
+        <td><%= vote.comment %></td>
+        <td><%= link_to 'Show', user_vote_path(vote) %></td>
+        <td><%= link_to 'Edit', edit_user_vote_path(vote) %></td>
+        <td><%= link_to 'Destroy', user_vote_path(vote), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

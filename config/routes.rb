@@ -24,7 +24,7 @@ Happycompany::Application.routes.draw do
   get ':action' => 'static#:action'
 
   # You can have the root of your site routed with "root"
-  root "static#dashboard", as: :auth_root, constraints: AuthConstraint.new
+  root "votes#index", as: :auth_root, constraints: AuthConstraint.new
 
   root 'static#welcome'
 

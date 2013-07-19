@@ -41,7 +41,7 @@
       <th>Worst</th>
       <th>Recommendation</th>
       <th>Comment</th>
-      <th>User</th>
+      <th>Kollege</th>
     </tr>
   </thead>
 
@@ -53,7 +53,7 @@
         <td><%= vote.worst %></td>
         <td><%= vote.recommendation %></td>
         <td><%= vote.comment %></td>
-        <td><%= vote.user.name %></td>
+        <td><%= render partial: "layouts/colleague", collection: [vote.user], as: :colleague %></td>
       </tr>
     <% end %>
   </tbody>

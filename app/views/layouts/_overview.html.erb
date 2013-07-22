@@ -6,7 +6,7 @@
         <thead>
           <th>Ihr letzter Eintrag</th>
           <th class="right">
-            <%= l current_user.votes.last.created_at, format: :short %>
+            <%= l current_user.votes.last.created_at, format: :short unless current_user.votes.empty? %>
           </th>
         </thead>
         <tbody>

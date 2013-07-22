@@ -1,4 +1,4 @@
-<%= form_for @vote, url: user_vote_path(@vote) do |f| %>
+<%= form_for @vote, url: user_vote_path(@vote), html: {class: "custom"} do |f| %>
   <% if @vote.errors.any? %>
     <div id="error_explanation">
       <h4><%= pluralize(@vote.errors.count, "Fehler") %> verhindert, dass das Formular gespeichert werden kann:</h4>
@@ -12,26 +12,49 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :grade %><br>
-    <%= f.number_field :grade %>
+    <%= f.label :grade, t('vote.grade', company: current_user.company) %>
+    <label for="grade1" class="inline">
+      <input name="vote[grade]" type="radio" id="vote_grade_1" style="display:none;" value="1"
+        <%= "CHECKED" if @vote.grade == 1 %>>
+      <span class="custom radio <%= "CHECKED" if @vote.grade == 1 %>"></span> 1</label>
+    <label for="grade2" class="inline">
+      <input name="vote[grade]" type="radio" id="vote_grade_2" style="display:none;" value="2"
+        <%= "CHECKED" if @vote.grade == 2 %>>
+      <span class="custom radio <%= "CHECKED" if @vote.grade == 2 %>"></span> 2</label>
+    <label for="grade3" class="inline">
+      <input name="vote[grade]" type="radio" id="vote_grade_3" style="display:none;" value="3"
+        <%= "CHECKED" if @vote.grade == 3 %>>
+      <span class="custom radio <%= "CHECKED" if @vote.grade == 3 %>"></span> 3</label>
+    <label for="grade4" class="inline">
+      <input name="vote[grade]" type="radio" id="vote_grade_4" style="display:none;" value="4"
+        <%= "CHECKED" if @vote.grade == 4 %>>
+      <span class="custom radio <%= "CHECKED" if @vote.grade == 4 %>"></span> 4</label>
+    <label for="grade5" class="inline">
+      <input name="vote[grade]" type="radio" id="vote_grade_5" style="display:none;" value="5"
+        <%= "CHECKED" if @vote.grade == 5 %>>
+      <span class="custom radio <%= "CHECKED" if @vote.grade == 5 %>"></span> 5</label>
+    <label for="grade6" class="inline">
+      <input name="vote[grade]" type="radio" id="vote_grade_6" style="display:none;" value="6"
+        <%= "CHECKED" if @vote.grade == 6 %>>
+      <span class="custom radio <%= "CHECKED" if @vote.grade == 6 %>"></span> 6</label>
   </div>
   <div class="field">
-    <%= f.label :best %><br>
+    <%= f.label :best, t('vote.best_html') %>
     <%= f.text_area :best %>
   </div>
   <div class="field">
-    <%= f.label :worst %><br>
+    <%= f.label :worst, t('vote.worst_html') %>
     <%= f.text_area :worst %>
   </div>
   <div class="field">
-    <%= f.label :recommendation %><br>
+    <%= f.label :recommendation, t('vote.recommendation') %>
     <%= f.text_area :recommendation %>
   </div>
   <div class="field">
-    <%= f.label :comment %><br>
+    <%= f.label :comment, t('vote.comment') %>
     <%= f.text_area :comment %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Eintragen", class: "button small" %>
   </div>
 <% end %>

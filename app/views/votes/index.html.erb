@@ -1,7 +1,33 @@
-<h2>Neuer Eintrag</h2>
 <%= render 'form' %>
 
-<h2>Ihre Einträge bei <%= current_user.company %></h2>
+<h3>Alle Einträge bei <%= current_user.company %></h3>
+<table>
+  <thead>
+    <tr>
+      <th><%= t('vote.grade', company: current_user.company) %></th>
+      <th><%= t('vote.best_html') %></th>
+      <th><%= t('vote.worst_html') %></th>
+      <th><%= t('vote.recommendation') %></th>
+      <th><%= t('vote.comment') %></th>
+      <th><%= t('vote.author') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @company_votes.each do |vote| %>
+      <tr>
+        <td><%= vote.grade %></td>
+        <td><%= vote.best %></td>
+        <td><%= vote.worst %></td>
+        <td><%= vote.recommendation %></td>
+        <td><%= vote.comment %></td>
+        <td><%= render partial: "layouts/colleague", collection: [vote.user], as: :colleague %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Ihre Einträge bei <%= current_user.company %></h3>
 <table>
   <thead>
     <tr>
@@ -24,36 +50,9 @@
         <td><%= vote.worst %></td>
         <td><%= vote.recommendation %></td>
         <td><%= vote.comment %></td>
-        <td><%= link_to 'Show', user_vote_path(vote) %></td>
-        <td><%= link_to 'Edit', edit_user_vote_path(vote) %></td>
-        <td><%= link_to 'Destroy', user_vote_path(vote), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<h2>Alle Einträge bei <%= current_user.company %></h2>
-<table>
-  <thead>
-    <tr>
-      <th>Grade</th>
-      <th>Best</th>
-      <th>Worst</th>
-      <th>Recommendation</th>
-      <th>Comment</th>
-      <th>Kollege</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @company_votes.each do |vote| %>
-      <tr>
-        <td><%= vote.grade %></td>
-        <td><%= vote.best %></td>
-        <td><%= vote.worst %></td>
-        <td><%= vote.recommendation %></td>
-        <td><%= vote.comment %></td>
-        <td><%= render partial: "layouts/colleague", collection: [vote.user], as: :colleague %></td>
+        <td><%= link_to 'Anzeigen', user_vote_path(vote) %></td>
+        <td><%= link_to 'Bearbeiten', edit_user_vote_path(vote) %></td>
+        <td><%= link_to 'Löschen', user_vote_path(vote), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

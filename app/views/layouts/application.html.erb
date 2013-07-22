@@ -40,19 +40,24 @@
 
     <%= render "layouts/flashmessages" %>
 
-    <div class="row">
-      <div class="large-8 columns">
-        <%= yield %>
+    <% if current_user %>
+      <%= yield :accounthead %>
+      <div class="row">
+        <div class="large-12 columns">
+          <%= yield %>
+        </div>
       </div>
-      <div class="large-4 columns">
-        <%= render "layouts/overview" if current_user %>
-        <%= render "layouts/info" unless current_user %>
+    <% else %>
+      <div class="row">
+        <div class="large-8 columns">
+          <%= yield %>
+        </div>
+        <div class="large-4 columns">
+          <%= render "layouts/info" %>
+        </div>
       </div>
-    </div>
+    <% end %>
 
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   </body>
-  <% if false && Rails.env.development? %>
-  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-  <% end %>
 </html>

@@ -18,4 +18,8 @@ class Vote < ActiveRecord::Base
   belongs_to :user
 
   validates :grade, :inclusion => 1..6
+
+  def self.monthly_avg_for_company(month, company)
+    # Vote.where(company: company).where(strftime('%m', `date column`) = '04')count
+  end
 end

@@ -1,6 +1,16 @@
-<%= render 'form' %>
+<% content_for :accounthead do %>
+  <div class="row">
+    <div class="large-7 columns">
+      <%= render 'form' %>
+    </div>
+    <div class="large-5 columns">
+      <%= render "layouts/overview" %>
+    </div>
+  </div>
+<% end %>
 
-<h3>Alle Einträge bei <%= current_user.company %></h3>
+
+<h3>Zufriedenheit bei <%= current_user.company %></h3>
 <table>
   <thead>
     <tr>
@@ -27,17 +37,15 @@
   </tbody>
 </table>
 
-<h3>Ihre Einträge bei <%= current_user.company %></h3>
+<h3>Ihre Einträge</h3>
 <table>
   <thead>
     <tr>
-      <th>Grade</th>
-      <th>Best</th>
-      <th>Worst</th>
-      <th>Recommendation</th>
-      <th>Comment</th>
-      <th></th>
-      <th></th>
+      <th><%= t('vote.grade', company: current_user.company) %></th>
+      <th><%= t('vote.best_html') %></th>
+      <th><%= t('vote.worst_html') %></th>
+      <th><%= t('vote.recommendation') %></th>
+      <th><%= t('vote.comment') %></th>
       <th></th>
     </tr>
   </thead>
@@ -50,9 +58,8 @@
         <td><%= vote.worst %></td>
         <td><%= vote.recommendation %></td>
         <td><%= vote.comment %></td>
-        <td><%= link_to 'Anzeigen', user_vote_path(vote) %></td>
-        <td><%= link_to 'Bearbeiten', edit_user_vote_path(vote) %></td>
-        <td><%= link_to 'Löschen', user_vote_path(vote), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Bearbeiten', edit_user_vote_path(vote) %><br />
+            <%= button_to 'Löschen', user_vote_path(vote), class: "button tiny alert", method: :delete, data: { confirm: 'Sind Sie sicher?' } %></td>
       </tr>
     <% end %>
   </tbody>

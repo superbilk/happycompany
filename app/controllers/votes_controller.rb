@@ -5,9 +5,9 @@ class VotesController < ApplicationController
   # GET /votes
   # GET /votes.json
   def index
-    @votes = current_user.votes.limit(10)
+    @votes = current_user.votes.order("created_at DESC").limit(10)
     @vote = Vote.new
-    @company_votes = Vote.where(company: current_user.company)
+    @company_votes = Vote.where(company: current_user.company).order("created_at DESC").group("user_id").distinct
   end
 
   # GET /votes/1

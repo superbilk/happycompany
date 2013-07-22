@@ -205,8 +205,8 @@ de:
 
   vote:
     grade: Wie Zufrieden sind Sie bei %{company}
-    best_html: Was läuft gerade am <em>besten</em>
-    worst_html: Was läuft gerade am <em>schlechtesten</em>
+    best_html: Was ist Ihrer Meinung nach gerade am <em>besten</em>
+    worst_html: Was ist Ihrer Meinung nach gerade am <em>schlechtesten</em>
     recommendation: Was würde Ihre Zufriedenheit erhöhen
     comment: Weitere Anmerkungen
     author: Autor

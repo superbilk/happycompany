@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130718195119) do
+ActiveRecord::Schema.define(version: 20130723185651) do
 
   create_table "happinesses", force: true do |t|
     t.integer  "grade"
@@ -36,7 +36,8 @@ ActiveRecord::Schema.define(version: 20130718195119) do
     t.string   "email"
     t.string   "company"
     t.string   "image"
-    t.boolean  "show_company", default: false
+    t.boolean  "show_company",   default: false
+    t.string   "business_email"
   end
 
   create_table "votes", force: true do |t|

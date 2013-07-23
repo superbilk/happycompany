@@ -70,8 +70,12 @@
             <td class="right"><%= image_tag(xing_profile_image_url(current_user.image, :thumb)) %></td>
           </tr>
           <tr>
-            <td>E-Mail</td>
+            <td>Kontakt E-Mail</td>
             <td class="right"><%= current_user.email %><br /><small>(<a href="https://www.xing.com/app/settings?op=notifications" target="_blank">auf XING ändern</a>)</small></td>
+          </tr>
+          <tr>
+            <td>Business E-Mail</td>
+            <td class="right"><%= current_user.business_email %></td>
           </tr>
           <tr>
             <td>Firmenname auf Startseite</td>

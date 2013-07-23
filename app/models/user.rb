@@ -43,13 +43,14 @@ class User < ActiveRecord::Base
     self.name = auth["info"]["name"]
     self.email = auth["info"]["email"]
     self.image = auth["info"]["image"]
+    self.business_email = auth["extra"]["raw_info"]["business_address"]["email"]
     self
   end
 
 private
 
   def add_company
-    self.company = self.email.match(/@(.*)$/)[1]
+    self.company = self.business_email.match(/@(.*)$/)[1]
   end
 
 end

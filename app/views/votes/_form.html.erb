@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :grade, t('vote.grade', company: current_user.company) %>
+    <%= f.label :grade, t('vote.grade', company: current_user.company) + " (Schulnote)" %>
     <label for="grade1" class="inline">
       <input name="vote[grade]" type="radio" id="vote_grade_1" style="display:none;" value="1"
         <%= "CHECKED" if @vote.grade == 1 %>>

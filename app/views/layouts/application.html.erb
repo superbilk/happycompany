@@ -38,7 +38,7 @@
       </nav>
     <!-- </div> -->
 
-    <%= render "layouts/flashmessages" %>
+    <%= render :partial => 'layouts/flashes' %>
 
     <% if current_user %>
       <%= yield :accounthead %>

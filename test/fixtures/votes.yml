@@ -23,7 +23,7 @@ one:
   recommendation: MyText
   comment: MyText
   company: MyString
-  user_id: 
+  user_id:
 
 two:
   grade: 1
@@ -32,4 +32,4 @@ two:
   recommendation: MyText
   comment: MyText
   company: MyString
-  user_id: 
+  user_id:

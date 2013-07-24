@@ -73,3 +73,5 @@ group :test do
 end
 
 gem "font-awesome-rails"
+
+gem 'haml'

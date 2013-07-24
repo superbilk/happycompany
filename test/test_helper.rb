@@ -19,12 +19,15 @@ class ActiveSupport::TestCase
     'uid' => '123545',
     'info' => {
       'name' => "Peter Pansen",
-      'email' => "pansen@pansen.de"
+      'email' => "pansen@example.com"
     },
     'extra' => {
       'raw_info' => {
         'photo_urls' => {
           'mini_thumb' => "image.png"
+        },
+        'business_address' => {
+          'email' => "company@example.com"
         }
       }
     }

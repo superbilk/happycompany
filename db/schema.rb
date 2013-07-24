@@ -13,20 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20130723185651) do
 
-  create_table "happinesses", force: true do |t|
-    t.integer  "grade"
-    t.text     "best"
-    t.text     "worst"
-    t.text     "recommendation"
-    t.text     "comment"
-    t.string   "company"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "happinesses", ["user_id"], name: "index_happinesses_on_user_id"
-
   create_table "users", force: true do |t|
     t.string   "provider"
     t.string   "uid"

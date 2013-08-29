@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   validates :business_email, presence: true
   validates :company, presence: true
 
-  validates :company, exclusion: { in: %w(gmail.com t-online.de web.de gmx.de googlemail.de googlemail.com yahoo.de) }
+  # validates :company, exclusion: { in: %w(gmail.com t-online.de web.de gmx.de googlemail.de googlemail.com yahoo.de) }
 
   def self.from_omniauth(auth)
     user = where(auth.slice("provider", "uid")).first || User.new

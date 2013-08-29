@@ -45,16 +45,16 @@ class SessionsControllerTest < ActionController::TestCase
     assert_equal "Peter Pansen neu", User.find_by_id(session[:user_id]).name
   end
 
-  test "should not create account with gmail.com business_email" do
-    OmniAuth.config.add_mock(:xing, {:extra => {
-                                       :raw_info => {
-                                         :business_address => {
-                                           :email => "example@gmail.com" } } } } )
-    request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:xing]
+  # test "should not create account with gmail.com business_email" do
+  #   OmniAuth.config.add_mock(:xing, {:extra => {
+  #                                      :raw_info => {
+  #                                        :business_address => {
+  #                                          :email => "example@gmail.com" } } } } )
+  #   request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:xing]
 
-    assert_difference 'User.count', 0 do
-      get :create, :provider => "xing"
-    end
-  end
+  #   assert_difference 'User.count', 0 do
+  #     get :create, :provider => "xing"
+  #   end
+  # end
 
 end

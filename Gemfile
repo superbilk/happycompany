@@ -55,8 +55,8 @@ end
 
 gem 'omniauth-xing'
 
-gem 'compass-rails' # you need this or you get an err
-gem "zurb-foundation", "~> 4.3.0"
+
+gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
 
 gem 'annotate', ">=2.5.0"
 

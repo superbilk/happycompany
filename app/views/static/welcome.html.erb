@@ -1,14 +1,35 @@
-<h2>Willkommen</h2>
-<p>Bitte loggen Sie sich mit Ihrem XING-Account ein:
-  <%= link_to image_tag("login_grey_18_DE.png"), "/auth/xing" %>
-</p>
+<div class="jumbotron">
+  <h1>Willkommen</h1>
+  <p class="lead">Bitte loggen Sie sich mit Ihrem XING-Account ein</p>
+  <p><%= link_to image_tag("login_grey_18_retina_DE.png"), "/auth/xing" %></p>
+</div>
 
-<% unless User.all_companies.empty? %>
-<div class="row">
-  <div class="large-8 columns">
-    <p>Mitarbeiter folgender Unternehmen nutzen <em>Happy Company</em> bereits:
+<div class="row marketing">
+
+  <% unless User.all_companies.empty? %>
+  <div class="col-lg-12">
+    <h4>Mitarbeiter folgender Unternehmen nutzen <em>Happy Company</em> bereits</h4>
+    <p>
       <%= User.all_companies.to_sentence(:two_words_connector => " und ", :last_word_connector => " und ") %>
     </p>
   </div>
+  <% end %>
+
+<!--   <div class="col-lg-6">
+    <h4>Subheading</h4>
+    <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+    <h4>Subheading</h4>
+    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+  </div>
+
+  <div class="col-lg-6">
+    <h4>Subheading</h4>
+    <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+    <h4>Subheading</h4>
+    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+  </div>
+ -->
 </div>
-<% end %>
+

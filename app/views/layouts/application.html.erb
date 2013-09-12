@@ -10,25 +10,26 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <h1><a href="/"><%= content_for?(:title) ? yield(:title) : "Happy Company" %> </a></h1>
-    <%= render :partial => 'layouts/flashes' %>
-    <% if current_user %>
-      <%= yield :accounthead %>
-      <div class="row">
-        <div class="large-12 columns">
-          <%= yield %>
-        </div>
-      </div>
-    <% else %>
-      <div class="row">
-        <div class="large-8 columns">
-          <%= yield %>
-        </div>
-        <div class="large-4 columns">
-          <%= render "layouts/info" %>
-        </div>
-      </div>
-    <% end %>
+    <div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
 
+        <h3 class="text-muted">Happy Company</h3>
+      </div>
+
+      <%= render 'layouts/messages' %>
+
+      <%= yield :accounthead %>
+      <%= yield %>
+
+      <div class="footer">
+        <p>&copy; Happy Company 2013</p>
+      </div>
+
+    </div> <!-- /container -->
   </body>
 </html>

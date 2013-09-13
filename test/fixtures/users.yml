@@ -11,7 +11,7 @@
 #  email          :string(255)
 #  company        :string(255)
 #  image          :string(255)
-#  show_company   :boolean          default(FALSE)
+#  show_company   :boolean          default(TRUE)
 #  business_email :string(255)
 #
 

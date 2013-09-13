@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   def create
     user = User.from_omniauth(auth_hash)
     session[:user_id] = user.id
-    redirect_to root_url, notice: "Hallo #{user.name}!"
+    redirect_to root_url
   end
 
   def destroy

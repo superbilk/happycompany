@@ -1,106 +1,59 @@
-<div class="section-container tabs" data-section="tabs">
-  <section>
-    <p class="title" data-section-title><a href="#">Übersicht</a></p>
-    <div class="content" data-section-content>
-      <table>
-        <thead>
-          <th>Ihr letzter Eintrag</th>
-          <th class="right">
-            <%= l current_user.votes.last.created_at, format: :short unless current_user.votes.empty? %>
-          </th>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Firma</td>
-            <td class="right">
-              <%= link_to current_user.company, "http://#{current_user.company}", target: "_blank" %>
-            </td>
-          </tr>
-<!--           <tr>
-            <td><%= l Time.zone.now, format: '%B' %></td>
-            <td class="right">
-              <%= Vote.monthly_avg_for_company(Time.zone.now.strftime('%B'), current_user.company) %>
-            </td>
-          </tr>
-          <tr>
-            <td><%= l Time.zone.now.last_month, format: '%B' %></td>
-            <td class="right">
-              3.3
-            </td>
-          </tr>
-          <tr>
-            <td><%= l Time.zone.now.last_month.last_month, format: '%B' %></td>
-            <td class="right">
-              4.3
-            </td>
-          </tr>
-          <tr>
-            <td><%= l Time.zone.now, format: '%Y' %></td>
-            <td class="right">
-              3.3
-            </td>
-          </tr>
- -->          <tr>
-            <td>Kollegen</td>
-            <td class="right">
-              <%= render partial: "layouts/colleague", collection: current_user.colleagues, as: :colleague %>
-            </td>
-          </tr>
-          <tr>
-            <td>Benutzer</td>
-            <td class="right"><%= User.count %></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-  <section>
-    <p class="title" data-section-title><a href="#">Benutzerkonto</a></p>
-    <div class="content" data-section-content>
-      <table>
-        <thead>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Name</td>
-            <td class="right"><%= current_user.name %></td>
-          </tr>
-          <tr>
-            <td>Foto</td>
-            <td class="right"><%= image_tag(xing_profile_image_url(current_user.image, :thumb)) %></td>
-          </tr>
-          <tr>
-            <td>Kontakt E-Mail</td>
-            <td class="right"><%= current_user.email %><br /><small>(<a href="https://www.xing.com/app/settings?op=notifications" target="_blank">auf XING ändern</a>)</small></td>
-          </tr>
-          <tr>
-            <td>Business E-Mail</td>
-            <td class="right"><strong><%= current_user.business_email %></strong></td>
-          </tr>
-          <tr>
-            <td>Firmenname auf Startseite</td>
-            <td>
-              <form class="custom">
-                <label for="chwo_company_checkbox">
-                  <input type="checkbox" id="show_company" style="display: none;" <%= "checked" if current_user.show_company %>>
-                  <span class="custom checkbox"></span> anzeigen
-                </label>
-              </form>
-            </td>
-          </tr>
-          <tr>
-            <td>Angemeldet</td>
-            <td class="right"><%= l current_user.created_at, format: :date %></td>
-          </tr>
-        </tbody>
-      </table>
+<table class="table">
+  <tbody>
+    <tr>
+      <td>Ihr Profil</td>
+      <td class="text-right"><%= image_tag(xing_profile_image_url(current_user.image, :mini_thumb)) %> <%= current_user.name %></td>
+    </tr>
+    <tr>
+      <td>Ihr letzter Eintrag</td>
+      <td class="text-right">
+        <%= l current_user.votes.last.created_at, format: :short unless current_user.votes.empty? %>
+      </td>
+    </tr>
+    <tr>
+      <td>Firma</td>
+      <td class="text-right">
+        <%= link_to current_user.company, "http://#{current_user.company}", target: "_blank" %>
+      </td>
+    </tr>
+    <tr>
+      <td>Kollegen</td>
+      <td class="text-right">
+        <%= render partial: "layouts/colleague", collection: current_user.colleagues, as: :colleague %>
+      </td>
+    </tr>
+    <tr>
+      <td>Benutzer</td>
+      <td class="text-right"><%= User.count %></td>
+    </tr>
+    <tr>
+      <td>Kontakt E-Mail</td>
+      <td class="text-right"><%= current_user.email %><br /><small>(<a href="https://www.xing.com/app/settings?op=notifications" target="_blank">auf XING ändern</a>)</small></td>
+    </tr>
+    <tr>
+      <td>Business E-Mail</td>
+      <td class="text-right"><strong><%= current_user.business_email %></strong></td>
+    </tr>
+    <tr>
+      <td>Firmenname auf Startseite</td>
+      <td>
+        <form role="form">
+          <div class="form-group">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="show_company" id="show_company" <%= "checked" if current_user.show_company %>> anzeigen
+              </label>
+            </div>
+          </div>
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td>Angemeldet</td>
+      <td class="text-right"><%= l current_user.created_at, format: :date %></td>
+    </tr>
+  </tbody>
+</table>
 
-      <%= button_to 'Benutzerkonto löschen', user_path, method: :delete, class: "btn btn-danger", data: { confirm: 'Sind Sie sicher?' } %>
-      <%= button_to "Abmelden", signout_path, class: "btn btn-warning", method: :get %>
-
-    </div>
-  </section>
-</div>
-
-
-
+<%= button_to 'Benutzerkonto löschen', user_path, method: :delete, class: "btn btn-danger", data: { confirm: 'Sind Sie sicher?' } %>
+<%= button_to "Abmelden", signout_path, class: "btn btn-warning", method: :get %>

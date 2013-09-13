@@ -11,48 +11,33 @@
     </div>
   <% end %>
 
+  <div class="form-group">
+    <%= f.label :grade, t('vote.grade', company: current_user.company) + " (Schulnote)" %><br />
 
+    <% (1..6).each do |grade| %>
+    <label class="radio-inline">
+      <input name="vote[grade]" type="radio" id="vote_grade_<%= grade %>" value="<%= grade %>" <%= "CHECKED" if @vote.grade == grade %>> <%= grade %>
+    </label>
+    <% end %>
+  </div>
 
-    <div class="form-group">
-      <%= f.label :grade, t('vote.grade', company: current_user.company) + " (Schulnote)" %><br />
+  <div class="form-group">
+    <%= f.label :best, t('vote.best_html') %>
+    <%= f.text_area :best, rows: 1, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :worst, t('vote.worst_html') %>
+    <%= f.text_area :worst, rows: 1, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :recommendation, t('vote.recommendation') %>
+    <%= f.text_area :recommendation, rows: 1, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :comment, t('vote.comment') %>
+    <%= f.text_area :comment, rows: 1, class: "form-control" %>
+  </div>
 
-
-      <label class="radio-inline">
-        <input name="vote[grade]" type="radio" id="vote_grade_1" value="1"> 1
-      </label>
-      <label class="radio-inline">
-        <input name="vote[grade]" type="radio" id="vote_grade_2" value="2"> 2
-      </label>
-      <label class="radio-inline">
-        <input name="vote[grade]" type="radio" id="vote_grade_3" value="3"> 3
-      </label>
-      <label class="radio-inline">
-        <input name="vote[grade]" type="radio" id="vote_grade_4" value="4"> 4
-      </label>
-      <label class="radio-inline">
-        <input name="vote[grade]" type="radio" id="vote_grade_5" value="5"> 5
-      </label>
-      <label class="radio-inline">
-        <input name="vote[grade]" type="radio" id="vote_grade_6" value="6"> 6
-      </label>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :best, t('vote.best_html') %>
-      <%= f.text_area :best, rows: 1, class: "form-control" %>
-    </div>
-    <div class="field">
-      <%= f.label :worst, t('vote.worst_html') %>
-      <%= f.text_area :worst, rows: 1, class: "form-control" %>
-    </div>
-    <div class="field">
-      <%= f.label :recommendation, t('vote.recommendation') %>
-      <%= f.text_area :recommendation, rows: 1, class: "form-control" %>
-    </div>
-    <div class="field">
-      <%= f.label :comment, t('vote.comment') %>
-      <%= f.text_area :comment, rows: 1, class: "form-control" %>
-    </div>
-    <%= f.button "Abschicken", type: "submit", class: "btn btn-default" %>
+  <%= f.button "Abschicken", type: "submit", class: "btn btn-default" %>
 
 <% end %>

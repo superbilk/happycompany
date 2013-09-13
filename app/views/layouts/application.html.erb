@@ -5,7 +5,6 @@
     <title><%= content_for?(:title) ? yield(:title) : "Happy Company" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Bootstrap" %>">
     <%= stylesheet_link_tag "application", :media => "all" %>
-    <link href='http://fonts.googleapis.com/css?family=Sonsie+One' rel='stylesheet' type='text/css'>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
@@ -14,8 +13,8 @@
       <div class="header">
         <% if current_user %>
         <ul class="nav nav-tabs pull-right" id="headerTab">
-          <li class="active"><a href="#home" data-toggle="tab">Umfrage</a></li>
-          <li><a href="#company" data-toggle="tab"><%= current_user.company %></a></li>
+          <li><a href="#home" data-toggle="tab">Umfrage</a></li>
+          <li class="active"><a href="#company" data-toggle="tab"><%= current_user.company %></a></li>
           <li><a href="#profile" data-toggle="tab">Profil</a></li>
         </ul>
         <% end %>
@@ -32,5 +31,10 @@
       </div>
 
     </div> <!-- /container -->
+    <% if Rails.env.development? %>
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
+    <% end %>
   </body>
 </html>

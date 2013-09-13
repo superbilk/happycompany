@@ -7,3 +7,9 @@ jQuery ->
     $.ajax '/user/show_company',
       type: "PATCH",
       data: show_company: $(this).is(':checked')
+
+  $("#xing_login_image").mouseover ->
+    $(this).attr("src", "<%= asset_path('login_grey_18_retina_hover_DE.png') %>")
+
+  $("#xing_login_image").mouseout ->
+    $(this).attr("src", "<%= asset_path('login_grey_18_retina_DE.png') %>")

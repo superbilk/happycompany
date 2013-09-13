@@ -12,18 +12,19 @@
   <body>
     <div class="container">
       <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+        <% if current_user %>
+        <ul class="nav nav-tabs pull-right" id="headerTab">
+          <li class="active"><a href="#home" data-toggle="tab">Umfrage</a></li>
+          <li><a href="#company" data-toggle="tab"><%= current_user.company %></a></li>
+          <li><a href="#profile" data-toggle="tab">Profil</a></li>
         </ul>
+        <% end %>
 
         <h3 class="text-muted">Happy Company</h3>
       </div>
 
       <%= render 'layouts/messages' %>
 
-      <%= yield :accounthead %>
       <%= yield %>
 
       <div class="footer">

@@ -1,15 +1,10 @@
-<% content_for :accounthead do %>
-  <div class="row">
-    <div class="large-7 columns">
-      <%= render 'form' %>
-    </div>
-    <div class="large-5 columns">
-      <%= render "layouts/overview" %>
-    </div>
-  </div>
-<% end %>
+<div class="tab-content">
+  <div class="tab-pane active" id="home"><%= render "form" %></div>
+  <div class="tab-pane" id="company">Company</div>
+  <div class="tab-pane" id="profile"><%= render "layouts/overview" %></div>
+</div>
 
-
+<!--
 <h3>Zufriedenheit bei <%= current_user.company %></h3>
 <table>
   <thead>
@@ -64,3 +59,4 @@
     <% end %>
   </tbody>
 </table>
+-->

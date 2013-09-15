@@ -9,19 +9,9 @@
 
 <div class="row marketing">
 
-  <% unless User.all_companies.empty? %>
-  <div class="col-lg-12">
-    <h4>Mitarbeiter folgender Unternehmen nutzen <em>Happy Company</em> bereits</h4>
-    <p>
-      <%= User.all_companies.to_sentence(:two_words_connector => " und ", :last_word_connector => " und ") %>
-    </p>
-  </div>
-  <% end %>
-
   <div class="col-lg-6">
     <h4>Einfache Nutzung</h4>
     <p>Zugang bekommen Sie durch Ihren XING-Account. Die Umfrage umfasst nur eine Schulnote und drei einfache (freiwillige) Fragen.</p>
-
 
     <h4>Regelmäßiges Feedback</h4>
     <p>Wir erinnern Sie regelmäßig per E-Mail daran, die Umfrage auszufüllen. Durch regelmäßiges Feedback können Sie Veränderungen besser sehen und rechtzeitig reagieren.<br>
@@ -37,6 +27,15 @@
     <p>Ihre Kollegen können Ihre Aussagen unterstützen, so können Sie besser sehen, welche Themen vielen am Herzen liegen.<br>
     <span class="text-muted">Demnächst verfügbar</span></p>
   </div>
+
+  <% unless User.all_companies.empty? %>
+  <div class="col-lg-12">
+    <h4>Mitarbeiter folgender Unternehmen nutzen <em>Happy Company</em> bereits</h4>
+    <p>
+      <%= User.all_companies.to_sentence(:two_words_connector => " und ", :last_word_connector => " und ") %>
+    </p>
+  </div>
+  <% end %>
 
 </div>
 

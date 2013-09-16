@@ -1,4 +1,9 @@
+$jumbotron-bg: #1ABC9C;
+$jumbotron-color: #fff;
+
+
 @import "bootstrap";
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -49,5 +54,4 @@ code {
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
-  background-color: transparent;
 }

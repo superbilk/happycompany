@@ -5,6 +5,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "Happy Company" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Bootstrap" %>">
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= render 'layouts/livereload' if Rails.env.development? %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>

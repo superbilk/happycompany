@@ -15,10 +15,30 @@
     <% @company_votes.each do |vote| %>
       <tr class="<%= color_row_by_grade vote.grade %>">
         <td><%= vote.grade %></td>
-        <td><%= vote.best %></td>
-        <td><%= vote.worst %></td>
-        <td><%= vote.recommendation %></td>
-        <td><%= vote.comment %></td>
+        <td>
+          <%= truncate(vote.best, length: 200) %>
+          <p class="text-right text-muted">
+            Diese Meinung unterstützen: <span class="glyphicon glyphicon-thumbs-up"></span>
+          </p>
+        </td>
+        <td>
+          <%= truncate(vote.worst, length: 200) %>
+          <p class="text-right text-muted">
+            Diese Meinung unterstützen: <span class="glyphicon glyphicon-thumbs-up"></span>
+          </p>
+        </td>
+        <td>
+          <%= truncate(vote.recommendation, length: 200) %>
+          <p class="text-right text-muted">
+            Diese Meinung unterstützen: <span class="glyphicon glyphicon-thumbs-up"></span>
+          </p>
+        </td>
+        <td>
+          <%= truncate(vote.comment, length: 200) %>
+          <p class="text-right text-muted">
+            Diese Meinung unterstützen: <span class="glyphicon glyphicon-thumbs-up"></span>
+          </p>
+        </td>
         <td><%= render partial: "layouts/colleague", collection: [vote.user], as: :colleague %></td>
       </tr>
     <% end %>

@@ -13,7 +13,7 @@
     <tr>
       <td>Firma</td>
       <td class="text-right">
-        <%= link_to current_user.company, "http://#{current_user.company}", target: "_blank" %>
+        <%= link_to current_user.company, "http://www.#{current_user.company}", target: "_blank" %>
       </td>
     </tr>
     <tr>
@@ -21,14 +21,6 @@
       <td class="text-right">
         <%= render partial: "layouts/colleague", collection: current_user.colleagues, as: :colleague %>
       </td>
-    </tr>
-    <tr>
-      <td>Benutzer</td>
-      <td class="text-right"><%= User.count %></td>
-    </tr>
-    <tr>
-      <td>Kontakt E-Mail</td>
-      <td class="text-right"><%= current_user.email %><br /><small>(<a href="https://www.xing.com/app/settings?op=notifications" target="_blank">auf XING ändern</a>)</small></td>
     </tr>
     <tr>
       <td>Business E-Mail</td>
@@ -49,7 +41,7 @@
       </td>
     </tr>
     <tr>
-      <td>Angemeldet</td>
+      <td>Angemeldet seit</td>
       <td class="text-right"><%= l current_user.created_at, format: :date %></td>
     </tr>
   </tbody>

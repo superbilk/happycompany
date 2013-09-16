@@ -17,27 +17,35 @@
         <td><%= vote.grade %></td>
         <td>
           <%= truncate(vote.best, length: 200) %>
+          <% unless vote.best.empty? || vote.user == current_user %>
           <p class="text-right text-muted">
             Diese Meinung unterstützen: <span class="glyphicon glyphicon-thumbs-up"></span>
           </p>
+          <% end %>
         </td>
         <td>
           <%= truncate(vote.worst, length: 200) %>
+          <% unless vote.worst.empty? || vote.user == current_user %>
           <p class="text-right text-muted">
             Diese Meinung unterstützen: <span class="glyphicon glyphicon-thumbs-up"></span>
           </p>
+          <% end %>
         </td>
         <td>
           <%= truncate(vote.recommendation, length: 200) %>
+          <% unless vote.recommendation.empty? || vote.user == current_user %>
           <p class="text-right text-muted">
             Diese Meinung unterstützen: <span class="glyphicon glyphicon-thumbs-up"></span>
           </p>
+          <% end %>
         </td>
         <td>
           <%= truncate(vote.comment, length: 200) %>
+          <% unless vote.comment.empty? || vote.user == current_user %>
           <p class="text-right text-muted">
             Diese Meinung unterstützen: <span class="glyphicon glyphicon-thumbs-up"></span>
           </p>
+          <% end %>
         </td>
         <td><%= render partial: "layouts/colleague", collection: [vote.user], as: :colleague %></td>
       </tr>

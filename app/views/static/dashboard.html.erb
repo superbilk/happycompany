@@ -13,7 +13,7 @@
 
   <tbody>
     <% @company_votes.each do |vote| %>
-      <tr <%== "class=\"danger\"" if vote.grade >4 %>>
+      <tr class="<%= color_row_by_grade vote.grade %>">
         <td><%= vote.grade %></td>
         <td><%= vote.best %></td>
         <td><%= vote.worst %></td>
@@ -40,7 +40,7 @@
 
   <tbody>
     <% @votes.each do |vote| %>
-      <tr <%== "class=\"danger\"" if vote.grade >4 %>>
+      <tr class="<%= color_row_by_grade vote.grade %>">
         <td><%= vote.grade %></td>
         <td><%= vote.best %></td>
         <td><%= vote.worst %></td>

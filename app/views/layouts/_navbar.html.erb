@@ -13,9 +13,9 @@
     <% if current_user %>
     <div class="collapse navbar-collapse pull-right">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Umfrage", new_user_vote_path %></li>
-        <li class="active"><a href="/"><%= current_user.company %></a></li>
-        <li><%= link_to "Profil", profile_url %></li>
+        <%= nav_link "Umfrage", new_user_vote_path %>
+        <%= nav_link current_user.company, root_path %>
+        <%= nav_link "Profil", profile_url %>
       </ul>
     </div><!--/.nav-collapse -->
     <% end %>

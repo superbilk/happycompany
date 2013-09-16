@@ -8,6 +8,10 @@ class UsersController < ApplicationController
       end
   end
 
+  def show
+    redirect_to root_url unless current_user
+  end
+
   def destroy
     current_user.destroy
     redirect_to signout_url

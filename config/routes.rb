@@ -11,6 +11,8 @@ Happycompany::Application.routes.draw do
   get 'auth/failure'          => redirect('/')
   get 'signout'               => 'sessions#destroy', as: 'signout'
 
+  get "profile" => "users#show"
+
   resource :user, only: [:destroy] do
     resources :votes
     member do
@@ -24,7 +26,7 @@ Happycompany::Application.routes.draw do
   get ':action' => 'static#:action'
 
   # You can have the root of your site routed with "root"
-  root "votes#index", as: :auth_root, constraints: AuthConstraint.new
+  root "static#dashboard", as: :auth_root, constraints: AuthConstraint.new
 
   root 'static#welcome'
 

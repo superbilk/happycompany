@@ -16,7 +16,7 @@
 #
 
 class User < ActiveRecord::Base
-  has_many :votes
+  has_many :votes, dependent: :nullify
   before_validation :add_company
 
   validates :provider, presence: true

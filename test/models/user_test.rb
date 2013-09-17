@@ -23,15 +23,4 @@ class UserTest < ActiveSupport::TestCase
     refute user.save
   end
 
-  # test "can not create user with gmail.com business_email" do
-  #   user = User.new
-  #   user.name = Faker::Name.name
-  #   user.email = Faker::Internet.email
-  #   user.business_email = "test@gmail.com"
-  #   user.image = Faker::Internet.url
-  #   user.provider = "twitter"
-  #   user.uid = "12345"
-  #   refute user.save
-  # end
-
 end

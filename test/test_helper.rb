@@ -16,7 +16,7 @@ class ActiveSupport::TestCase
 
   OmniAuth.config.mock_auth[:default] = OmniAuth::AuthHash.new({
     'provider' => 'xing',
-    'uid' => '123545',
+    'uid' => '99123545',
     'info' => {
       'name' => "Peter Pansen",
       'email' => "pansen@example.com"

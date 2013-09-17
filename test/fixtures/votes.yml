@@ -16,20 +16,20 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+good_vote:
   grade: 1
-  best: MyText
-  worst: MyText
-  recommendation: MyText
-  comment: MyText
-  company: MyString
-  user_id:
+  best: good_best
+  worst: good_worst
+  recommendation: good_recommendation
+  comment: good_comment
+  company: company.com
+  user: peter
 
-two:
-  grade: 1
-  best: MyText
-  worst: MyText
-  recommendation: MyText
-  comment: MyText
-  company: MyString
-  user_id:
+bad_vote:
+  grade: 6
+  best: bad_best
+  worst: bad_worst
+  recommendation: bad_recommendation
+  comment: bad_comment
+  company: company.com
+  user: peter

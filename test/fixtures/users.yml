@@ -17,10 +17,13 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  provider: MyString
-  uid: MyString
-  name: MyString
+peter:
+  provider: xing
+  uid: 1992345
+  name: Peter Lustig
+  email: peter@company.com
+  company: company.com
+  business_email: lustig@company.com
 
 # two:
 #   provider: MyString

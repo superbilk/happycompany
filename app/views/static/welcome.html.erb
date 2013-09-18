@@ -51,7 +51,7 @@
   <div class="col-lg-12">
     <h2>Mitarbeiter folgender Unternehmen nutzen <em>Happy Company</em> bereits</h2>
     <h3>
-      <%= User.all_companies.to_sentence(:two_words_connector => " und ", :last_word_connector => " und ") %>
+      <%= linked_companies User.all_companies %>
     </h3>
   </div>
   <% end %>

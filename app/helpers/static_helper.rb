@@ -30,4 +30,8 @@ module StaticHelper
     css_class
   end
 
+  def linked_companies(companies)
+    companies.collect{ |c| link_to(c, "http://www.#{c}", class: "company_testimonial")}.to_sentence(:two_words_connector => " und ", :last_word_connector => " und ")
+  end
+
 end

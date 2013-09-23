@@ -22,9 +22,9 @@ module StaticHelper
 
   def color_row_by_grade(grade)
     case grade
-    when 6
-      css_class = "danger"
     when 1
+      css_class = "danger"
+    when 5
       css_class = "success"
     end
     css_class

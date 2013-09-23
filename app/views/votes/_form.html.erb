@@ -14,9 +14,9 @@
       <% end %>
 
       <div class="form-group">
-        <%= f.label :grade, t('vote.grade', company: current_user.company) + " (Schulnote)" %><br />
+        <%= f.label :grade, t('vote.grade', company: current_user.company) + " (1 schlecht / 5 gut)" %><br />
 
-        <% (1..6).each do |grade| %>
+        <% (1..5).each do |grade| %>
         <label class="radio-inline">
           <input name="vote[grade]" type="radio" id="vote_grade_<%= grade %>" value="<%= grade %>" <%= "CHECKED" if @vote.grade == grade %>> <%= grade %>
         </label>

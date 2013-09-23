@@ -1,13 +1,21 @@
 <h3>Allgemeine Zufriedenheit bei <%= current_user.company %></h3>
+
+<% if @company_votes.blank? %>
+<p>
+  Bisher gibt es keine Einträge.
+  <%= link_to "Hier klicken, um den ersten Eintrag zu erstellen.", new_user_vote_path %>
+</p>
+<% else %>
 <table class="table">
   <thead>
     <tr>
       <th><%= t('vote.grade', company: current_user.company) %></th>
+      <th><%= t('vote.updated_at') %></th>
       <th><%= t('vote.best_html') %></th>
       <th><%= t('vote.worst_html') %></th>
       <th><%= t('vote.recommendation') %></th>
       <th><%= t('vote.comment') %></th>
-      <th></th>
+      <th><%= t('vote.author') %></th>
     </tr>
   </thead>
 
@@ -15,6 +23,7 @@
     <% @company_votes.each do |vote| %>
       <tr class="<%= color_row_by_grade vote.grade %>">
         <td><%= vote.grade %></td>
+        <td><%= distance_of_time_in_words(Time.now, vote.updated_at) %></td>
         <td>
           <%= truncate(vote.best, length: 200) %>
           <% unless vote.best.empty? || vote.user == current_user %>
@@ -48,7 +57,7 @@
           <% end %>
         </td>
         <td>
-
+          <%= render partial: "layouts/colleague", collection: [vote.user], as: :colleague %>
         </td>
       </tr>
     <% end %>
@@ -56,15 +65,22 @@
 </table>
 
 <h3>Ihre Einträge</h3>
+<% if @votes.blank? %>
+<p>
+  Bisher gibt es keine Einträge.
+  <%= link_to "Hier klicken, um den ersten Eintrag zu erstellen.", new_user_vote_path %>
+</p>
+<% else %>
 <table class="table">
   <thead>
     <tr>
       <th><%= t('vote.grade', company: current_user.company) %></th>
+      <th><%= t('vote.updated_at') %></th>
       <th><%= t('vote.best_html') %></th>
       <th><%= t('vote.worst_html') %></th>
       <th><%= t('vote.recommendation') %></th>
       <th><%= t('vote.comment') %></th>
-      <th></th>
+      <th><%= t('vote.author') %></th>
     </tr>
   </thead>
 
@@ -72,6 +88,7 @@
     <% @votes.each do |vote| %>
       <tr class="<%= color_row_by_grade vote.grade %>">
         <td><%= vote.grade %></td>
+        <td><%= distance_of_time_in_words(Time.now, vote.updated_at) %></td>
         <td><%= vote.best %></td>
         <td><%= vote.worst %></td>
         <td><%= vote.recommendation %></td>
@@ -95,3 +112,5 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
+<% end %>
